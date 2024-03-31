@@ -48,13 +48,17 @@
             numboxYear.Name = "numboxYear";
             numboxYear.Size = new Size(120, 23);
             numboxYear.TabIndex = 0;
+            numboxYear.ValueChanged += numboxYear_ValueChanged;
             // 
             // numboxMonth
             // 
             numboxMonth.Location = new Point(173, 66);
+            numboxMonth.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
             numboxMonth.Name = "numboxMonth";
             numboxMonth.Size = new Size(120, 23);
             numboxMonth.TabIndex = 1;
+            numboxMonth.KeyDown += numboxMonth_KeyDown;
+            numboxMonth.KeyPress += numboxMonth_KeyPress;
             // 
             // label1
             // 

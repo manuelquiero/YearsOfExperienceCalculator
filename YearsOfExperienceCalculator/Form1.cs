@@ -12,6 +12,8 @@ namespace YearsOfExperienceCalculator
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            numboxYear.Select();
+            btnTotal.Enabled = false;
         }
 
         private void btnCalculate_Click(object sender, EventArgs e)
@@ -30,9 +32,9 @@ namespace YearsOfExperienceCalculator
         {
             rtxtbxHistory.Text = "";
             foreach (var x in _exp)
-            {
                 rtxtbxHistory.Text += $"{x.Year} year, {x.Month} month\r";
-            }
+
+            btnTotal.Enabled = _exp.Any();
         }
         private int Subtract(int a, int b)
         {
@@ -66,7 +68,26 @@ namespace YearsOfExperienceCalculator
         private void btnReset_Click(object sender, EventArgs e)
         {
             _exp = new();
-            rtxtbxHistory.Text = "";
+            numboxMonth.Value = 0;
+            numboxYear.Value = 0;
+            PopulateRichTextBox();
+        }
+
+        private void numboxYear_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numboxMonth_KeyDown(object sender, KeyEventArgs e)
+        {
+            
+        }
+
+        private void numboxMonth_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            int val = (int)numboxMonth.Value;
+            if (val > 12)
+                numboxMonth.Value = 0;
         }
     }
 }
