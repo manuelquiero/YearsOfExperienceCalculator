@@ -47,10 +47,7 @@ namespace YearsOfExperienceCalculator
         {
             int total = 0;
             int totalMonth = 0;
-            int remainderMonth = 0;
-            // 1 year 10 months
-            // 1 year 1 months
-            // 1 year 4 month
+
             for (int x = 0; x < _exp.Count(); x++)
             {
                 totalMonth += _exp[x].Month;
