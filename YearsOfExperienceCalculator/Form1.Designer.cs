@@ -147,8 +147,9 @@
             Controls.Add(label1);
             Controls.Add(numboxMonth);
             Controls.Add(numboxYear);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "Form1";
-            Text = "Form1";
+            Text = "Years of experience calculator";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)numboxYear).EndInit();
             ((System.ComponentModel.ISupportInitialize)numboxMonth).EndInit();
