@@ -46,27 +46,30 @@ namespace YearsOfExperienceCalculator
         private void btnTotal_Click(object sender, EventArgs e)
         {
             int total = 0;
+            int totalMonth = 0;
             int remainderMonth = 0;
             // 1 year 10 months
-            // 1 year 4 months
-            // 1 year 1 month
-            for(int x = 0; x < _exp.Count(); x++)
-                total += _exp[x].Year;
-
-            for (int x = 0; x < _exp.OrderByDescending(o => o.Month).Count(); x++)
+            // 1 year 1 months
+            // 1 year 4 month
+            for (int x = 0; x < _exp.Count(); x++)
             {
-                if (_exp[x].Month < 12)
-                {
-                    int d = Subtract(_exp[x].Month,12);
-                    int next = _exp[x + 1].Month;
-                    _exp[x + 1].Month = Subtract(next, d);
-                    total += 1;
-                }
-                else
-                    total += 1;
+                totalMonth += _exp[x].Month;
+                total += _exp[x].Year;
             }
 
-            lblTotal.Text = $"{total} years of experience";
+            while (totalMonth >= 12)
+            {
+                total++;
+                totalMonth = Subtract(totalMonth, 12);
+            }
+
+            lblTotal.Text = $"{total} year{(total > 1 ? "s" : "")}, {totalMonth} month{(totalMonth > 1 ? "s" : "")} of experience";
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            _exp = new();
+            rtxtbxHistory.Text = "";
         }
     }
 }

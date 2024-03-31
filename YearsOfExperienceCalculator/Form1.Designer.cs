@@ -37,6 +37,7 @@
             btnCalculate = new Button();
             btnTotal = new Button();
             rtxtbxHistory = new RichTextBox();
+            btnReset = new Button();
             ((System.ComponentModel.ISupportInitialize)numboxYear).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numboxMonth).BeginInit();
             SuspendLayout();
@@ -121,11 +122,22 @@
             rtxtbxHistory.TabIndex = 8;
             rtxtbxHistory.Text = "";
             // 
+            // btnReset
+            // 
+            btnReset.Location = new Point(358, 328);
+            btnReset.Name = "btnReset";
+            btnReset.Size = new Size(75, 23);
+            btnReset.TabIndex = 9;
+            btnReset.Text = "Reset";
+            btnReset.UseVisualStyleBackColor = true;
+            btnReset.Click += btnReset_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(445, 363);
+            Controls.Add(btnReset);
             Controls.Add(rtxtbxHistory);
             Controls.Add(btnTotal);
             Controls.Add(btnCalculate);
@@ -155,5 +167,6 @@
         private Button btnCalculate;
         private Button btnTotal;
         private RichTextBox rtxtbxHistory;
+        private Button btnReset;
     }
 }
